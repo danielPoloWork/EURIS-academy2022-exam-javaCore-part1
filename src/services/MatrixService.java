@@ -81,17 +81,22 @@ public class MatrixService {
         }
     }
 
-    public void setRows(StringBuilder output, Integer[][] matrixB, Integer[][] matrixC) {
+    public Integer[][] setRows(StringBuilder output, Integer[][] matrixB, Integer[][] matrixC) {
+        Integer[][] matrix = new Integer[matrixB.length][matrixB[0].length];
         for (int a = 0; a < matrixB.length; a++) {
             output.append("\t{");
-            setColumns(output, matrixB, matrixC, a);
+            setColumns(output, matrixB, matrixC, matrix, a);
         }
+        return matrix;
     }
 
-    public void setColumns(StringBuilder output, Integer[][] matrixB, Integer[][] matrixC, int a) {
+    public Integer[][] setColumns(StringBuilder output, Integer[][] matrixB, Integer[][] matrixC, Integer[][] matrix, int a) {
         for (int b = 0; b < matrixB[0].length; b++) {
+            matrix[a][b] = matrixB[a][b] + matrixC[a][b];
             output.append(getOutputStringFormat(a, b, matrixB.length, matrixB[a][b] + matrixC[a][b]));
         }
+
+        return matrix;
     }
 
     public String getOutputStringFormat(int a, int b, int length, int value) {
