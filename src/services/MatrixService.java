@@ -3,6 +3,7 @@ package services;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+/** @author Daniel Polo 2022 **/
 public class MatrixService {
 
     public Integer[][] getMatrixA() {
