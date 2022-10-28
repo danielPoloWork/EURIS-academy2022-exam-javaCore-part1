@@ -19,8 +19,9 @@ public class MatrixPrint {
 
     public void printSumTwoMatrix(String inputA, String inputB) {
         StringBuilder output = new StringBuilder("RESULT:\n{\n");
-        matrixService.setRows(output, matrixService.getMatrixFromInput(inputA), matrixService.getMatrixFromInput(inputB));
+        Integer[][] matrix = matrixService.setRows(output, matrixService.getMatrixFromInput(inputA), matrixService.getMatrixFromInput(inputB));
         System.out.println(output);
+        System.out.printf("RESULT: %s\n", matrixService.doSum(matrix));
     }
 
     public void printReadMatrix(String input) {
